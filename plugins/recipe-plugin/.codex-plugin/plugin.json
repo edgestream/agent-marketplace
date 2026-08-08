@@ -1,6 +1,6 @@
 {
   "name": "recipe",
-  "version": "0.1.0+codex.20260808160026",
+  "version": "0.1.0+codex.20260808161337",
   "description": "Get cooking recipes.",
   "author": {
     "name": "Edgestream"
@@ -11,7 +11,7 @@
     "shortDescription": "Get cooking recipes.",
     "longDescription": "Recipe Plugin provides structured recipe data from pluggable recipe providers.",
     "developerName": "Edgestream",
-    "category": "Productivity",
+    "category": "Lifestyle",
     "capabilities": [],
     "defaultPrompt": "Get the recipe for https://recipes.example.test/mock/classic-pancakes",
     "brandColor": "#242424",
