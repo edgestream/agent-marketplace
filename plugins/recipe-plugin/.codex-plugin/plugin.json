@@ -1,6 +1,6 @@
 {
   "name": "recipe",
-  "version": "0.1.0+codex.20260808170325",
+  "version": "0.1.0+codex.20260808170955",
   "description": "Get cooking recipes.",
   "author": {
     "name": "Edgestream"
@@ -12,7 +12,7 @@
     "developerName": "Edgestream",
     "category": "Lifestyle",
     "capabilities": [],
-    "defaultPrompt": "Get the recipe for https://recipes.example.test/mock/classic-pancakes",
+    "defaultPrompt": "Search Chefkoch for a vegetarian pasta recipe",
     "brandColor": "#242424",
     "composerIcon": "./assets/branding/exports/recipe-plugin-icon-256.png",
     "logo": "./assets/branding/recipe-plugin-icon.png",
