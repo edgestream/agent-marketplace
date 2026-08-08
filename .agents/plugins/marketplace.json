@@ -1,0 +1,20 @@
+{
+  "name": "edgestream",
+  "interface": {
+    "displayName": "Edgestream"
+  },
+  "plugins": [
+    {
+      "name": "recipe-plugin",
+      "source": {
+        "source": "local",
+        "path": "./plugins/recipe-plugin"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
