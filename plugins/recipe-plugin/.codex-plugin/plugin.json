@@ -1,11 +1,10 @@
 {
   "name": "recipe",
-  "version": "0.1.0+codex.20260808161337",
+  "version": "0.1.0+codex.20260808170325",
   "description": "Get cooking recipes.",
   "author": {
     "name": "Edgestream"
   },
-  "skills": "./skills/",
   "interface": {
     "displayName": "Recipe",
     "shortDescription": "Get cooking recipes.",
