@@ -1,18 +1,18 @@
 {
-  "name": "recipe",
-  "version": "0.1.0+codex.20260808170955",
-  "description": "Get cooking recipes.",
+  "name": "recipe-plugin",
+  "version": "0.1.0+codex.20260808185403",
+  "description": "Search and read cooking recipes",
   "author": {
     "name": "Edgestream"
   },
   "interface": {
-    "displayName": "Recipe",
-    "shortDescription": "Get cooking recipes.",
-    "longDescription": "Recipe Plugin provides structured recipe data from pluggable recipe providers.",
+    "displayName": "Recipe Plugin",
+    "shortDescription": "Search and read public recipes.",
+    "longDescription": "Search and read structured public cooking recipe data from various providers.",
     "developerName": "Edgestream",
     "category": "Lifestyle",
     "capabilities": [],
-    "defaultPrompt": "Search Chefkoch for a vegetarian pasta recipe",
+    "defaultPrompt": "Find a vegetarian pasta recipe",
     "brandColor": "#242424",
     "composerIcon": "./assets/branding/exports/recipe-plugin-icon-256.png",
     "logo": "./assets/branding/recipe-plugin-icon.png",
