@@ -1,13 +1,13 @@
 {
   "name": "recipe-plugin",
-  "version": "0.1.0+codex.20260808185403",
+  "version": "0.1.0+codex.20260808190611",
   "description": "Search and read cooking recipes",
   "author": {
     "name": "Edgestream"
   },
   "interface": {
-    "displayName": "Recipe Plugin",
-    "shortDescription": "Search and read public recipes.",
+    "displayName": "Recipe",
+    "shortDescription": "Search and read cooking recipes",
     "longDescription": "Search and read structured public cooking recipe data from various providers.",
     "developerName": "Edgestream",
     "category": "Lifestyle",
