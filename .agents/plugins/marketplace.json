@@ -7,8 +7,9 @@
     {
       "name": "recipe-plugin",
       "source": {
-        "source": "local",
-        "path": "./plugins/recipe-plugin"
+        "source": "url",
+        "url": "https://github.com/edgestream/recipe-plugin.git",
+        "ref": "main"
       },
       "policy": {
         "installation": "AVAILABLE",
