@@ -5,7 +5,7 @@
   },
   "plugins": [
     {
-      "name": "recipe-plugin",
+      "name": "recipe",
       "source": {
         "source": "url",
         "url": "https://github.com/edgestream/recipe-plugin.git",
