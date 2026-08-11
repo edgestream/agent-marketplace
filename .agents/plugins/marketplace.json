@@ -1,11 +1,11 @@
 {
-  "name": "edgestream",
+  "name": "edgestream-dev",
   "interface": {
-    "displayName": "Edgestream"
+    "displayName": "Edgestream Lab"
   },
   "plugins": [
     {
-      "name": "recipe",
+      "name": "recipe-dev",
       "source": {
         "source": "url",
         "url": "https://github.com/edgestream/recipe-plugin.git",
@@ -16,6 +16,19 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Lifestyle"
+    },
+    {
+      "name": "social-media-dev",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/edgestream/social-media-plugin.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Production"
     }
   ]
 }
