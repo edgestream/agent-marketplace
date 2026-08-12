@@ -16,6 +16,19 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Lifestyle"
+    },
+    {
+      "name": "social-media",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/edgestream/social-media-plugin.git",
+        "ref": "0.1.0"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Production"
     }
   ]
 }
