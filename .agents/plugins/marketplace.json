@@ -29,6 +29,19 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Production"
+    },
+    {
+      "name": "fxtwitter-plugin-dev",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/edgestream/fxtwitter-plugin.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Production"
     }
   ]
 }
