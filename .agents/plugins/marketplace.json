@@ -16,6 +16,19 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Communication"
+    },
+    {
+      "name": "recipes-plugin",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/edgestream/recipes-plugin.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Lifestyle"
     }
   ]
 }
