@@ -18,7 +18,7 @@
       "category": "Communication"
     },
     {
-      "name": "recipes-plugin",
+      "name": "recipes-plugin-dev",
       "source": {
         "source": "url",
         "url": "https://github.com/edgestream/recipes-plugin.git",
