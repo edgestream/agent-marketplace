@@ -5,7 +5,7 @@
   },
   "plugins": [
     {
-      "name": "fxtwitter-plugin-dev",
+      "name": "fxtwitter-dev",
       "source": {
         "source": "url",
         "url": "https://github.com/edgestream/fxtwitter-plugin.git",
@@ -18,7 +18,7 @@
       "category": "Communication"
     },
     {
-      "name": "recipes-plugin-dev",
+      "name": "recipes-dev",
       "source": {
         "source": "url",
         "url": "https://github.com/edgestream/recipes-plugin.git",
