@@ -29,6 +29,19 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Lifestyle"
+    },
+    {
+      "name": "feeds-dev",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/edgestream/feeds-plugin.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Communication"
     }
   ]
 }
