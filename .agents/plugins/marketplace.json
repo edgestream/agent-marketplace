@@ -22,7 +22,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/edgestream/feeds-plugin.git",
-        "ref": "main"
+        "ref": "codex/bluesky-feeds"
       },
       "policy": {
         "installation": "AVAILABLE",
