@@ -22,7 +22,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/edgestream/feeds-plugin.git",
-        "ref": "main"
+        "ref": "c14f296a0599b1ad5c0b840f258c45c0236f43b4"
       },
       "policy": {
         "installation": "AVAILABLE",
