@@ -6,10 +6,12 @@
   "plugins": [
     {
       "name": "feeds",
+      "pluginId": "plugin_asdk_app_6ac0cdbf693881919570de155357722d",
       "source": {
-        "source": "url",
+        "source": "git-subdir",
         "url": "https://github.com/edgestream/feeds-plugin.git",
-        "ref": "0.2.5"
+        "path": "./web",
+        "ref": "0.2.6"
       },
       "policy": {
         "installation": "AVAILABLE",
