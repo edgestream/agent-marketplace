@@ -5,26 +5,12 @@
   },
   "plugins": [
     {
-      "name": "feeds",
+      "name": "feeds-web",
       "source": {
         "source": "git-subdir",
         "url": "https://github.com/edgestream/feeds-plugin.git",
         "path": "./web",
-        "ref": "0.2.7"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Communication"
-    },
-    {
-      "name": "feeds-web-evaluation",
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/edgestream/feeds-plugin.git",
-        "path": "./web-evaluation",
-        "ref": "72a6ea2ad694f25a685b92b92387863e11fda34c"
+        "ref": "0.2.8"
       },
       "policy": {
         "installation": "AVAILABLE",
