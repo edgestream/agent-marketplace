@@ -23,8 +23,8 @@
       "source": {
         "source": "git-subdir",
         "url": "https://github.com/edgestream/feeds-plugin.git",
-        "path": "./web",
-        "ref": "0.2.7"
+        "path": "./web-evaluation",
+        "ref": "72a6ea2ad694f25a685b92b92387863e11fda34c"
       },
       "policy": {
         "installation": "AVAILABLE",
