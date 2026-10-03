@@ -10,7 +10,7 @@
         "source": "git-subdir",
         "url": "https://github.com/edgestream/feeds-plugin.git",
         "path": "./web",
-        "ref": "0.2.6"
+        "ref": "0.2.7"
       },
       "policy": {
         "installation": "AVAILABLE",
