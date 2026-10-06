@@ -15,9 +15,9 @@ This repository follows the [Agent Plugins specification](https://agent-plugins.
 
 Stable entries normally point to published release tags; development entries
 follow the plugin repository's development branch. The hosted Feeds workspace
-app is the deliberate exception: it follows `feeds-plugin` `main` so its source
-is the unmodified app-generated package that owns the existing workspace
-identity. The catalogs are authoritative:
+app is the deliberate exception: it follows `feeds-plugin` `main` and keeps the
+app-generated package identity while its presentation metadata evolves. The
+catalogs are authoritative:
 [stable](https://github.com/edgestream/agent-marketplace/blob/main/.agents/plugins/marketplace.json)
 and [development](https://github.com/edgestream/agent-marketplace/blob/development/.agents/plugins/marketplace.json).
 Use the entry's `name` for CLI installation; the plugin manifest supplies its
@@ -56,17 +56,17 @@ must make it available first; CLI registration alone does not import it into a
 ChatGPT workspace. See the [official plugin documentation](https://developers.openai.com/plugins)
 for host setup and availability.
 
-For the hosted Feeds workspace plugin, import this repository's **root** stable
-marketplace in Admin > Plugins with Source
+For the hosted Feeds workspace plugin, use the existing OAuth-enabled app at
+`https://feeds.mcp.edgestream.cloud/mcp` and its existing workspace plugin. In
+Admin > Marketplaces, connect this repository's root with Source
 `https://github.com/edgestream/agent-marketplace`, an empty Path, and Branch
-`main`. Its technical catalog name is
-`dev-6ac49879ccc481918f51562ec1d84797`, matching the exported app-generated
-package. The entry uses the existing workspace plugin ID and the MCP-free Web
-package directly from `feeds-plugin` `main`. Review the import result: Feeds
-must retain its plugin ID
-`plugin_asdk_app_6ac49879ccc481918f51562ec1d84797`. Stop if a second Feeds
-plugin is created or the existing ID is not adopted. Each user keeps their own
-OAuth connection. See [promotion](docs/PROMOTION.md) for updates and rollback.
+`main`; synchronize it. The Feeds entry loads `feeds-plugin` `main` from `./web`.
+Its technical catalog name is `dev-6ac49879ccc481918f51562ec1d84797`, and
+its `pluginId` is `plugin_asdk_app_6ac49879ccc481918f51562ec1d84797`.
+Confirm one Feeds entry under Admin > Plugins and the same ID in its admin URL.
+Users install that workspace entry and connect their own OAuth accounts. The
+same entry works in ChatGPT Web and Desktop, Chat and Work. See
+[promotion](docs/PROMOTION.md) for updates and rollback.
 
 For Feeds Dev, try “Read the feed at https://x.com/OpenAI” and check for an
 actual tool call. See the [plugin README](https://github.com/edgestream/feeds-plugin)

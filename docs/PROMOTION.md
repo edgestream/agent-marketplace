@@ -16,10 +16,11 @@ For installation commands and channel selection, see [README.md](../README.md#in
    existing policy fields.
 3. Verify the tag resolves to the supplied commit and both plugin manifests at
    that commit declare the expected identity and matching release version. For
-   the hosted Feeds `main` exception, verify the committed Web manifests against
-   the exported app-generated package instead. Review the current stable
-   reference: an older maintenance-line patch must not displace a newer stable
-   minor release unless an explicit rollback is intended.
+   the hosted Feeds `main` exception, verify its existing technical name, app
+   mapping, local asset paths, and lack of an MCP server declaration instead.
+   Review the current stable reference: an older maintenance-line patch must
+   not displace a newer stable minor release unless an explicit rollback is
+   intended.
 4. Record the repository, tag, commit, previous reference, and validation in the
    PR. Review and merge the listing change, then verify installation below.
 
@@ -31,11 +32,29 @@ branches into one another: their catalogs intentionally differ.
 The hosted Feeds workspace plugin is listed in the root stable catalog alongside
 Recipes. Preserve its existing workspace `pluginId` and MCP-free `web/` source
 path. It intentionally follows `feeds-plugin` `main`, with technical catalog
-name `dev-6ac49879ccc481918f51562ec1d84797`, because that branch contains the
-unaltered app-generated package that owns the workspace identity. Do not change
+name `dev-6ac49879ccc481918f51562ec1d84797`. Its `web/` package retains the
+original app mapping while metadata and skills can evolve. Referenced icons and
+skills must live under `web/` because it becomes the package root. Do not change
 its name, `pluginId`, source path, or reference to a release tag without an
 explicit workspace migration decision. Import the root marketplace once into the
 workspace; a separate Feeds marketplace is not part of this setup.
+
+### Update hosted Feeds
+
+Change `feeds-plugin/main` under `web/`, keeping the technical name, `.app.json`
+mapping, and MCP-free package intact. Validate local asset and skill paths, then
+push the reviewed commit. In Admin > Marketplaces, synchronize the existing root
+Edgestream marketplace. Record the Feeds source commit and synchronization
+result. In Admin > Plugins, confirm one Feeds entry with plugin ID
+`plugin_asdk_app_6ac49879ccc481918f51562ec1d84797`. Check the intended
+metadata and an authenticated `get_feed` call in a fresh session. Each member
+keeps their own OAuth connection; do not create another app or marketplace.
+
+If a Feeds update fails, correct or revert the offending `feeds-plugin/main`
+commit, then synchronize the existing marketplace again. Verify the same plugin
+ID and recheck an authenticated call. A catalog or package change that replaces
+the ID is a migration, not a routine rollback; stop and restore the last working
+configuration before reinstalling anything.
 
 ## Installation verification
 
