@@ -11,12 +11,15 @@ For installation commands and channel selection, see [README.md](../README.md#in
 2. Create a separate branch and PR targeting this repository's `main`. Update
    only the relevant entry in `.agents/plugins/marketplace.json`: its repository
    URL, plugin identity, and `source.ref`. Stable entries must reference a
-   published tag, never a moving maintenance branch. Preserve unrelated entries
-   and existing policy fields.
+   published tag, never a moving maintenance branch, except for the documented
+   hosted Feeds workspace identity below. Preserve unrelated entries and
+   existing policy fields.
 3. Verify the tag resolves to the supplied commit and both plugin manifests at
-   that commit declare the expected identity and matching release version.
-   Review the current stable reference: an older maintenance-line patch must not
-   displace a newer stable minor release unless an explicit rollback is intended.
+   that commit declare the expected identity and matching release version. For
+   the hosted Feeds `main` exception, verify the committed Web manifests against
+   the exported app-generated package instead. Review the current stable
+   reference: an older maintenance-line patch must not displace a newer stable
+   minor release unless an explicit rollback is intended.
 4. Record the repository, tag, commit, previous reference, and validation in the
    PR. Review and merge the listing change, then verify installation below.
 
@@ -27,8 +30,12 @@ branches into one another: their catalogs intentionally differ.
 
 The hosted Feeds workspace plugin is listed in the root stable catalog alongside
 Recipes. Preserve its existing workspace `pluginId` and MCP-free `web/` source
-path when advancing its published `source.ref`. Import the root marketplace once
-into the workspace; a separate Feeds marketplace is not part of this setup.
+path. It intentionally follows `feeds-plugin` `main`, with technical catalog
+name `dev-6ac49879ccc481918f51562ec1d84797`, because that branch contains the
+unaltered app-generated package that owns the workspace identity. Do not change
+its name, `pluginId`, source path, or reference to a release tag without an
+explicit workspace migration decision. Import the root marketplace once into the
+workspace; a separate Feeds marketplace is not part of this setup.
 
 ## Installation verification
 
