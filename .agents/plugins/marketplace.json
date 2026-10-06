@@ -16,6 +16,21 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Lifestyle"
+    },
+    {
+      "name": "feeds",
+      "pluginId": "plugin_asdk_app_6ac49879ccc481918f51562ec1d84797",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/edgestream/feeds-plugin.git",
+        "path": "./web",
+        "ref": "0.2.9"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Communications"
     }
   ]
 }
