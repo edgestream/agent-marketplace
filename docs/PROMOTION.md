@@ -25,6 +25,12 @@ repository's development branch and use the development identity. Stable
 promotion does not require changing that catalog. Do not merge entire marketplace
 branches into one another: their catalogs intentionally differ.
 
+The hosted Feeds workspace plugin uses the separate
+[`workspace-feeds` catalog](WORKSPACE_FEEDS.md), whose entry includes the existing
+workspace `pluginId` and the MCP-free `web/` source path. Promote its published
+stable tag in that catalog only; do not add Feeds to the root catalog for this
+workspace import.
+
 ## Installation verification
 
 After promotion, test a fresh installation and an update from the previous
