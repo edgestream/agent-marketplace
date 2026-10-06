@@ -1,10 +1,10 @@
 # Edgestream Marketplace
 
+This repository follows the [Agent Plugins specification](https://agent-plugins.org/).
+
 Install agent plugins from the stable or development channel. This repository
 owns marketplace installation, updates, and [release promotion](docs/PROMOTION.md).
 Plugin repositories own their capabilities, local development, and release builds.
-
-This repository follows the [Agent Plugins specification](https://agent-plugins.org/).
 
 ## Channels
 
@@ -12,16 +12,6 @@ This repository follows the [Agent Plugins specification](https://agent-plugins.
 | --- | --- | --- | --- |
 | Stable | `main` | `edgestream` | Edgestream |
 | Development | `development` | `edgestream-dev` | Edgestream Lab |
-
-Stable entries normally point to published release tags; development entries
-follow the plugin repository's development branch. The hosted Feeds workspace
-app is the deliberate exception: it follows `feeds-plugin` `main` and keeps the
-app-generated package identity while its presentation metadata evolves. The
-catalogs are authoritative:
-[stable](https://github.com/edgestream/agent-marketplace/blob/main/.agents/plugins/marketplace.json)
-and [development](https://github.com/edgestream/agent-marketplace/blob/development/.agents/plugins/marketplace.json).
-Use the entry's `name` for CLI installation; the plugin manifest supplies its
-display name. Available plugins may differ between channels.
 
 ## Installation
 
@@ -31,7 +21,7 @@ For the stable channel:
 
 ```bash
 codex plugin marketplace add edgestream/agent-marketplace --ref main
-codex plugin add recipes@edgestream
+codex plugin add feeds@edgestream
 ```
 
 For the development channel:
@@ -40,11 +30,6 @@ For the development channel:
 codex plugin marketplace add edgestream/agent-marketplace --ref development
 codex plugin add feeds-dev@edgestream-dev
 ```
-
-The stable example installs Recipes; the development example installs Feeds Dev.
-For another plugin, use `<plugin-name>@<marketplace-id>` from the selected catalog.
-Register each marketplace once. Run `codex plugin list` to confirm installation,
-then start a new task and request the installed plugin explicitly.
 
 ### ChatGPT desktop
 
@@ -56,22 +41,6 @@ must make it available first; CLI registration alone does not import it into a
 ChatGPT workspace. See the [official plugin documentation](https://developers.openai.com/plugins)
 for host setup and availability.
 
-For the hosted Feeds workspace plugin, use the existing OAuth-enabled app at
-`https://feeds.mcp.edgestream.cloud/mcp` and its existing workspace plugin. In
-Admin > Marketplaces, connect this repository's root with Source
-`https://github.com/edgestream/agent-marketplace`, an empty Path, and Branch
-`main`; synchronize it. The Feeds entry loads `feeds-plugin` `main` from `./web`.
-Its technical catalog name is `dev-6ac49879ccc481918f51562ec1d84797`, and
-its `pluginId` is `plugin_asdk_app_6ac49879ccc481918f51562ec1d84797`.
-Confirm one Feeds entry under Admin > Plugins and the same ID in its admin URL.
-Users install that workspace entry and connect their own OAuth accounts. The
-same entry works in ChatGPT Web and Desktop, Chat and Work. See
-[promotion](docs/PROMOTION.md) for updates and rollback.
-
-For Feeds Dev, try “Read the feed at https://x.com/OpenAI” and check for an
-actual tool call. See the [plugin README](https://github.com/edgestream/feeds-plugin)
-for capabilities and standalone CLI/MCP use.
-
 ## Updates and channel changes
 
 Refresh the selected Codex marketplace snapshot:
@@ -82,20 +51,8 @@ codex plugin marketplace upgrade edgestream
 codex plugin marketplace upgrade edgestream-dev
 ```
 
-Reinstall the desired plugin using the installation command above when a new
-version is available, then start a fresh task and verify the installed version.
-Refreshing the catalog alone is not proof that an installed plugin was updated.
-In ChatGPT, use the workspace's plugin refresh/update controls and verify the
-result in a new chat; catalog syncing and local CLI snapshots are separate.
-
-Changing channels installs a different plugin identity. Do not assume settings
-or existing installations migrate automatically. Verify the new installation
-before removing the old one, and select the intended plugin explicitly if both
-are installed.
-
 ## Maintenance
 
 Use the [promotion guide](docs/PROMOTION.md) for listing changes, verification,
 retries, and rollback. Keep installation guidance here and link to it from plugin
-repositories. Maintain shared guides on `main`; development-branch documentation
-should link to this canonical guide rather than carry a second installation guide.
+repositories.
