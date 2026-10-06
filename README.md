@@ -13,8 +13,11 @@ This repository follows the [Agent Plugins specification](https://agent-plugins.
 | Stable | `main` | `edgestream` | Edgestream |
 | Development | `development` | `edgestream-dev` | Edgestream Lab |
 
-Stable entries point to published release tags; development entries follow the
-plugin repository's development branch. The catalogs are authoritative:
+Stable entries normally point to published release tags; development entries
+follow the plugin repository's development branch. The hosted Feeds workspace
+app is the deliberate exception: it follows `feeds-plugin` `main` so its source
+is the unmodified app-generated package that owns the existing workspace
+identity. The catalogs are authoritative:
 [stable](https://github.com/edgestream/agent-marketplace/blob/main/.agents/plugins/marketplace.json)
 and [development](https://github.com/edgestream/agent-marketplace/blob/development/.agents/plugins/marketplace.json).
 Use the entry's `name` for CLI installation; the plugin manifest supplies its
@@ -56,8 +59,11 @@ for host setup and availability.
 For the hosted Feeds workspace plugin, import this repository's **root** stable
 marketplace in Admin > Plugins with Source
 `https://github.com/edgestream/agent-marketplace`, an empty Path, and Branch
-`main`. Its Feeds entry uses the existing workspace plugin ID and the published
-MCP-free Web package. Review the import result: Feeds must retain its plugin ID
+`main`. Its technical catalog name is
+`dev-6ac49879ccc481918f51562ec1d84797`, matching the exported app-generated
+package. The entry uses the existing workspace plugin ID and the MCP-free Web
+package directly from `feeds-plugin` `main`. Review the import result: Feeds
+must retain its plugin ID
 `plugin_asdk_app_6ac49879ccc481918f51562ec1d84797`. Stop if a second Feeds
 plugin is created or the existing ID is not adopted. Each user keeps their own
 OAuth connection. See [promotion](docs/PROMOTION.md) for updates and rollback.
