@@ -28,7 +28,7 @@ For the stable channel:
 
 ```bash
 codex plugin marketplace add edgestream/agent-marketplace --ref main
-codex plugin add feeds@edgestream
+codex plugin add recipes@edgestream
 ```
 
 For the development channel:
@@ -38,8 +38,8 @@ codex plugin marketplace add edgestream/agent-marketplace --ref development
 codex plugin add feeds-dev@edgestream-dev
 ```
 
-The second command in each example installs the social-media plugin. For another
-plugin, use `<plugin-name>@<marketplace-id>` from the selected catalog.
+The stable example installs Recipes; the development example installs Feeds Dev.
+For another plugin, use `<plugin-name>@<marketplace-id>` from the selected catalog.
 Register each marketplace once. Run `codex plugin list` to confirm installation,
 then start a new task and request the installed plugin explicitly.
 
@@ -53,9 +53,10 @@ must make it available first; CLI registration alone does not import it into a
 ChatGPT workspace. See the [official plugin documentation](https://developers.openai.com/plugins)
 for host setup and availability.
 
-For the social-media plugin, try “Read the feed at https://x.com/OpenAI”. Its
-package includes companion skills; check for an actual tool call when verifying
-retrieval. See the [plugin README](https://github.com/edgestream/feeds-plugin)
+The hosted Feeds workspace plugin has a [separate one-entry import path](docs/WORKSPACE_FEEDS.md)
+that adopts its existing MCP app identity. It is not part of the root catalog.
+For Feeds Dev, try “Read the feed at https://x.com/OpenAI” and check for an
+actual tool call. See the [plugin README](https://github.com/edgestream/feeds-plugin)
 for capabilities and standalone CLI/MCP use.
 
 ## Updates and channel changes
