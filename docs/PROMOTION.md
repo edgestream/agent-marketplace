@@ -1,5 +1,9 @@
 # Marketplace promotion
 
+The hosted `main` catalog is retired; the procedure below is retained for
+separate development/future distribution work and does not authorize republishing
+the retired integrations.
+
 Plugin repositories own release preparation, builds, tests, tags, and GitHub
 releases. This repository owns listing changes and installed-host verification.
 For installation commands and channel selection, see [README.md](../README.md#installation).
@@ -11,13 +15,10 @@ For installation commands and channel selection, see [README.md](../README.md#in
 2. Create a separate branch and PR targeting this repository's `main`. Update
    only the relevant entry in `.agents/plugins/marketplace.json`: its repository
    URL, plugin identity, and `source.ref`. Stable entries must reference a
-   published tag, never a moving maintenance branch, except for the documented
-   hosted Feeds workspace identity below. Preserve unrelated entries and
+   published tag, never a moving maintenance branch. Preserve unrelated entries and
    existing policy fields.
 3. Verify the tag resolves to the supplied commit and both plugin manifests at
-   that commit declare the expected identity and matching release version. For
-   the hosted Feeds `main` exception, verify its existing technical name, app
-   mapping, local asset paths, and lack of an MCP server declaration instead.
+   that commit declare the expected identity and matching release version.
    Review the current stable reference: an older maintenance-line patch must
    not displace a newer stable minor release unless an explicit rollback is
    intended.
@@ -29,32 +30,50 @@ repository's development branch and use the development identity. Stable
 promotion does not require changing that catalog. Do not merge entire marketplace
 branches into one another: their catalogs intentionally differ.
 
-The hosted Feeds workspace plugin is listed in the root stable catalog alongside
-Recipes. Preserve its existing workspace `pluginId` and MCP-free `web/` source
-path. It intentionally follows `feeds-plugin` `main`, with technical catalog
-name `dev-6ac49879ccc481918f51562ec1d84797`. Its `web/` package retains the
-original app mapping while metadata and skills can evolve. Referenced icons and
-skills must live under `web/` because it becomes the package root. Do not change
-its name, `pluginId`, source path, or reference to a release tag without an
-explicit workspace migration decision. Import the root marketplace once into the
-workspace; a separate Feeds marketplace is not part of this setup.
+## Retire the hosted workspace marketplace
 
-### Update hosted Feeds
+The hosted workspace distribution of Feeds and Recipes is abandoned. The `main`
+catalog has no entries; do not promote new releases to it. This decision replaces
+the former exception that followed `feeds-plugin/main` through its `web/` package.
+Published tags and source repositories remain available for historical reference.
 
-Change `feeds-plugin/main` under `web/`, keeping the technical name, `.app.json`
-mapping, and MCP-free package intact. Validate local asset and skill paths, then
-push the reviewed commit. In Admin > Marketplaces, synchronize the existing root
-Edgestream marketplace. Record the Feeds source commit and synchronization
-result. In Admin > Plugins, confirm one Feeds entry with plugin ID
-`plugin_asdk_app_6ac49879ccc481918f51562ec1d84797`. Check the intended
-metadata and an authenticated `get_feed` call in a fresh session. Each member
-keeps their own OAuth connection; do not create another app or marketplace.
+A workspace administrator completes retirement:
 
-If a Feeds update fails, correct or revert the offending `feeds-plugin/main`
-commit, then synchronize the existing marketplace again. Verify the same plugin
-ID and recheck an authenticated call. A catalog or package change that replaces
-the ID is a migration, not a routine rollback; stop and restore the last working
-configuration before reinstalling anything.
+1. Open **Admin > Plugins > Marketplaces**, select the Edgestream import and
+   inspect its imported plugins. The retired catalog previously contained Recipes
+   and the hosted Feeds plugin
+   `plugin_asdk_app_6ac49879ccc481918f51562ec1d84797`.
+2. Delete that marketplace import. According to the
+   [official management guide](https://learn.chatgpt.com/docs/enterprise/plugin-management),
+   this deletes all plugins imported from it. Removing entries in Git alone only
+   marks workspace copies as **No longer in source** and is not an uninstall.
+3. Inspect **Workspace apps** and remove the retired Feeds MCP app and any
+   remaining integration belonging to these retired plugins. Revoke associated
+   OAuth grants and service credentials in the owning authorization system.
+   Personal plugin removal does not establish workspace-wide app removal.
+4. Verify from an ordinary member account that neither retired workspace plugin
+   can be installed or invoked. Check the marketplace import and associated MCP
+   apps are absent. Record the date, workspace and safe evidence; never record
+   tokens or keys.
+5. Decommission the retired hosted Feeds endpoint and its dedicated credentials
+   through the infrastructure owner. Preserve any shared identity infrastructure
+   still used by other services. Catalog removal does not stop a server.
+
+Deleting this workspace import does not delete the GitHub repository or remove
+local clients' configured marketplaces. Do not recreate the retired import to
+reconnect GitHub. A new private Feeds tunnel connection is a separate rollout;
+this retirement does not create or publish it.
+
+### Recorded status
+
+- Feeds personal/plugin uninstall: management tool confirmed uninstall of
+  `plugin_asdk_app_6ac49879ccc481918f51562ec1d84797` on 2026-10-23.
+- Recipes personal/plugin uninstall: management tool reported `not_installed`
+  for `recipes` on 2026-10-23; no workspace-wide absence is inferred.
+- Workspace marketplace deletion, connected app removal, OAuth revocation,
+  ordinary-member denial and hosted infrastructure shutdown: **Unverified**.
+  The available plugin tool does not administer workspace marketplace imports
+  or the hosting infrastructure.
 
 ## Installation verification
 
