@@ -3,34 +3,5 @@
   "interface": {
     "displayName": "Edgestream"
   },
-  "plugins": [
-    {
-      "name": "recipes",
-      "source": {
-        "source": "url",
-        "url": "https://github.com/edgestream/recipes-plugin.git",
-        "ref": "0.1.1"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Lifestyle"
-    },
-    {
-      "name": "dev-6ac49879ccc481918f51562ec1d84797",
-      "pluginId": "plugin_asdk_app_6ac49879ccc481918f51562ec1d84797",
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/edgestream/feeds-plugin.git",
-        "path": "./web",
-        "ref": "main"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Communications"
-    }
-  ]
+  "plugins": []
 }
